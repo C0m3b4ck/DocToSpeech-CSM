@@ -19,6 +19,22 @@ Conversational speech model with Llama backbone. Requires CUDA 12.x and a Huggin
 - Pinokio
 - HuggingFace account (for gated model access)
 
+### IMPORTANT COMPATIBILITY NOTE - READ BEFORE USE
+
+**Poppler** is required for PDF text extraction on all platforms. If you plan to process PDF files, you must install Poppler separately — it is **not** included with pip dependencies.
+
+| Platform | Install Command |
+|----------|-----------------|
+| **Linux (Debian/Ubuntu)** | `sudo apt install poppler-utils` |
+| **Linux (Fedora/RHEL)** | `sudo dnf install poppler-utils` |
+| **Linux (Arch)** | `sudo pacman -S poppler` |
+| **macOS** | `brew install poppler` |
+| **Windows** | Download from [poppler-windows releases](https://github.com/oschwartz10612/poppler-windows/releases), extract, and add the `Library/bin` folder to your system PATH |
+
+After installing, verify with: `pdftotext -v`
+
+Without Poppler, PDF documents will fail to load in the Gradio web UI and CLI.
+
 ## Install
 
 1. Open Pinokio
